@@ -2,6 +2,7 @@ package server;
 
 import java.io.*;
 import java.net.*;
+import java.nio.file.*;
 
 public class HttpServer {
     public static void main(String[] args) {
@@ -20,16 +21,20 @@ public class HttpServer {
                     if (line != null) {
                         System.out.println("Request: " + line);
                         
-                        // STAGE 3: Send Manual HTTP Response
+                        // Path to our index file
+                        Path filePath = Paths.get("public/index.html");
+                        String content = Files.readString(filePath);
+                        
                         PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
                         
                         // HTTP Headers
                         out.println("HTTP/1.1 200 OK");
                         out.println("Content-Type: text/html");
-                        out.println(""); // Important: Blank line between headers and body
+                        out.println("Content-Length: " + content.length());
+                        out.println(""); 
                         
-                        // HTTP Body
-                        out.println("<h1>Hello from Java Server</h1>");
+                        // Send file content
+                        out.print(content);
                         out.flush();
                     }
                 } catch (IOException e) {

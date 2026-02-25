@@ -9,15 +9,25 @@ public class HttpServer {
         
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Server started on port " + port);
-            System.out.println("Waiting for a connection...");
             
             while (true) {
                 try (Socket clientSocket = serverSocket.accept()) {
-                    System.out.println("Client connected!");
+                    // Stage 2: Read the HTTP Request
+                    BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(clientSocket.getInputStream())
+                    );
+                    
+                    String line = reader.readLine();
+                    if (line != null) {
+                        System.out.println("Request: " + line);
+                    }
+                    
+                } catch (IOException e) {
+                    System.err.println("Connection error: " + e.getMessage());
                 }
             }
         } catch (IOException e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("Server error: " + e.getMessage());
         }
     }
 }

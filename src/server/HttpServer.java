@@ -12,7 +12,6 @@ public class HttpServer {
             
             while (true) {
                 try (Socket clientSocket = serverSocket.accept()) {
-                    // Stage 2: Read the HTTP Request
                     BufferedReader reader = new BufferedReader(
                         new InputStreamReader(clientSocket.getInputStream())
                     );
@@ -20,8 +19,19 @@ public class HttpServer {
                     String line = reader.readLine();
                     if (line != null) {
                         System.out.println("Request: " + line);
+                        
+                        // STAGE 3: Send Manual HTTP Response
+                        PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
+                        
+                        // HTTP Headers
+                        out.println("HTTP/1.1 200 OK");
+                        out.println("Content-Type: text/html");
+                        out.println(""); // Important: Blank line between headers and body
+                        
+                        // HTTP Body
+                        out.println("<h1>Hello from Java Server</h1>");
+                        out.flush();
                     }
-                    
                 } catch (IOException e) {
                     System.err.println("Connection error: " + e.getMessage());
                 }

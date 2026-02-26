@@ -24,3 +24,4 @@ A simple HTTP server built from scratch using Java sockets. It handles HTTP GET 
 1. **Compile**: `javac src/server/HttpServer.java`
 2. **Run**: `java -cp src server.HttpServer`
 3. **Visit**: `http://localhost:8080`
+- [x] Refactored code into modular components (Stage 5)

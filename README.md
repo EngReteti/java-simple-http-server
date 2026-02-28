@@ -1,33 +1,39 @@
-# java-simple-http-server
+# ⚡ JavaCore HTTP Engine
 
-A modular HTTP server built from scratch using Java. This project demonstrates raw socket programming, HTTP protocol handling, and clean software architecture.
+### 1️⃣ Project Overview
+A lightweight, high-performance HTTP server built from scratch using raw Java Sockets. This project demonstrates the fundamentals of web architecture without relying on external frameworks.
 
-## 🚀 Features
-* **Modular Architecture**: Logic is separated into Parser, Builder, and Server components.
-* **Static File Serving**: Serves HTML files (Index, About) from the `public/` directory.
-* **Error Handling**: Custom 404 "Not Found" logic for invalid routes.
-* **Zero Frameworks**: Built using only the Java Standard Library (`java.net`, `java.io`, `java.nio`).
+### 2️⃣ Features
+* **Handles GET requests**: Parses incoming HTTP requests to identify desired resources.
+* **Serves Static Files**: Delivers HTML and CSS content dynamically from the `public/` directory.
+* **404 Error Handling**: Returns a custom error page for missing resources.
+* **Multi-threaded**: Processes concurrent client connections using a Thread-per-Request model.
 
-## 🏗️ Architecture (Stage 5 Refactor)
-* **HttpServer**: Manages the server lifecycle and client connections.
-* **RequestParser**: Extracts methods and paths from raw HTTP request strings.
-* **ResponseBuilder**: Constructs standards-compliant HTTP responses.
+### 3️⃣ How It Works
+* **ServerSocket**: Listens on port 8080 and accepts incoming client connections.
+* **Request Parsing**: Extracts the HTTP method and file path from the raw request line.
+* **Response Formatting**: Constructs a valid HTTP/1.1 response with status codes and MIME types.
 
-## 📈 Current Progress
-- [x] Project Setup & Git Initialization
-- [x] Basic ServerSocket Listening
-- [x] HTTP Request Line Parsing
-- [x] Basic HTTP Response Handling
-- [x] Serving Static HTML Files
-- [x] Refactored Modular Architecture (Stage 5)
+### 4️⃣ Example HTTP Flow
+**Client Request:**
+```text
+GET /index.html HTTP/1.1
+Host: localhost:8080
+```
 
-## 💻 How To Run
-1. **Compile all files**:
-   ```bash
-   javac src/server/*.java
-   ```
-2. **Run the server**:
-   ```bash
-   java -cp src server.HttpServer
-   ```
-3. **Visit**: `http://localhost:8080`
+**Server Response:**
+```text
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 124
+
+<html>...</html>
+```
+
+### 5️⃣ How To Run
+1. **Compile the source**:
+   `javac src/server/*.java`
+2. **Start the engine**:
+   `java -cp src server.HttpServer`
+3. **Visit in browser**:
+   Navigate to `http://localhost:8080`

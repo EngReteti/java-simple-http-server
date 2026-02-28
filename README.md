@@ -2,22 +2,24 @@
 
 A simple, multi-threaded HTTP server built from scratch using Java Sockets.
 
-## 🚀 Features
-* **Multi-threaded**: Handles multiple browser requests at once.
-* **Styling**: Delivers professional CSS styling alongside HTML content.
-* **MIME Detection**: Automatically identifies file types (HTML, CSS).
-
-## 🛠️ How to Run
+## 🚀 How to Run (Required for Links to Work)
+To make the test links below work, you must first start the engine in your terminal:
 1. **Compile**: `javac src/server/*.java`
 2. **Start**: `java -cp src server.HttpServer`
-3. **Visit**: Open `http://localhost:8080` in your browser.
+3. **Keep Terminal Open**: The server must stay running to handle requests.
 
 ## 🔗 Live Test Links
-* **Home Page**: [http://localhost:8080](http://localhost:8080) (Styled Content)
-* **CSS File**: [http://localhost:8080/css/style.css](http://localhost:8080/css/style.css) (Direct Asset)
-* **Trigger 404**: [http://localhost:8080/error](http://localhost:8080/error) (Test Error Handling)
+*Once the server is started, click these to test:*
+* **🏠 Home Page**: [http://localhost:8080](http://localhost:8080) (Styled Content)
+* **🎨 CSS Asset**: [http://localhost:8080/css/style.css](http://localhost:8080/css/style.css) (MIME Testing)
+* **⚠️ Trigger 404**: [http://localhost:8080/any-fake-page](http://localhost:8080/any-fake-page) (Error Handling)
+
+## 🛠️ Features
+* **Multi-threaded**: Uses a Thread-per-Request model for concurrent handling.
+* **MIME Detection**: Automatically identifies and serves HTML and CSS correctly.
+* **Live Logging**: See incoming `GET` requests in your terminal in real-time.
 
 ## 📂 Architecture
-* **HttpServer**: Listens for connections.
-* **ClientHandler**: The multi-threaded worker.
-* **ResponseBuilder**: Constructs valid HTTP/1.1 headers.
+* **HttpServer**: The main entry point and socket listener.
+* **ClientHandler**: The worker thread that processes requests.
+* **ResponseBuilder**: Constructs the HTTP/1.1 headers and body.

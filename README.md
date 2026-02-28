@@ -1,25 +1,18 @@
 # ⚡ JavaCore HTTP Engine
 
-A simple, multi-threaded HTTP server built from scratch using Java Sockets.
+A modular, multi-threaded HTTP server built from scratch.
 
-## 🚀 How to Run (Required for Links to Work)
-To make the test links below work, you must first start the engine in your terminal:
-1. **Compile**: `javac src/server/*.java`
-2. **Start**: `java -cp src server.HttpServer`
-3. **Keep Terminal Open**: The server must stay running to handle requests.
+## 🛠️ How to make the links work
+1. **Start the Engine**: Run `java -cp src server.HttpServer` in Termux.
+2. **Keep Termux Open**: The server must be active to respond to your browser.
+3. **Click & Watch**: When you click a link below, look back at Termux to see the live **HTTP/1.1** logs!
 
-## 🔗 Live Test Links
-*Once the server is started, click these to test:*
-* **🏠 Home Page**: [http://localhost:8080](http://localhost:8080) (Styled Content)
-* **🎨 CSS Asset**: [http://localhost:8080/css/style.css](http://localhost:8080/css/style.css) (MIME Testing)
-* **⚠️ Trigger 404**: [http://localhost:8080/any-fake-page](http://localhost:8080/any-fake-page) (Error Handling)
-
-## 🛠️ Features
-* **Multi-threaded**: Uses a Thread-per-Request model for concurrent handling.
-* **MIME Detection**: Automatically identifies and serves HTML and CSS correctly.
-* **Live Logging**: See incoming `GET` requests in your terminal in real-time.
+## 🔗 Test Links (Local Only)
+* 🏠 [Home Page](http://localhost:8080) - Loads index.html with CSS.
+* 🎨 [CSS Style](http://localhost:8080/css/style.css) - Tests MIME-type delivery.
+* ⚠️ [Trigger 404](http://localhost:8080/missing) - Tests your custom error page.
 
 ## 📂 Architecture
-* **HttpServer**: The main entry point and socket listener.
-* **ClientHandler**: The worker thread that processes requests.
-* **ResponseBuilder**: Constructs the HTTP/1.1 headers and body.
+* **Multi-threaded**: Each request runs on a new thread.
+* **Modular Parser**: Cleanly extracts the path from the HTTP request.
+* **Custom UI**: Glassmorphism design served directly from Java.

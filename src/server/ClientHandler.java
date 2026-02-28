@@ -17,7 +17,11 @@ public class ClientHandler implements Runnable {
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream())) {
             
             String requestLine = reader.readLine();
+            
+            // This line makes the README realistic!
             if (requestLine != null) {
+                System.out.println("Request: " + requestLine);
+                
                 String path = RequestParser.getPath(requestLine);
                 Path filePath = Paths.get("public" + path);
                 
@@ -40,8 +44,6 @@ public class ClientHandler implements Runnable {
             }
         } catch (IOException e) {
             System.err.println("Handler error: " + e.getMessage());
-        } finally {
-            try { clientSocket.close(); } catch (IOException e) {}
         }
     }
 }

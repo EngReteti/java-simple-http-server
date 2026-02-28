@@ -1,39 +1,23 @@
 # ⚡ JavaCore HTTP Engine
 
-### 1️⃣ Project Overview
-A lightweight, high-performance HTTP server built from scratch using raw Java Sockets. This project demonstrates the fundamentals of web architecture without relying on external frameworks.
+A simple, multi-threaded HTTP server built from scratch using Java Sockets.
 
-### 2️⃣ Features
-* **Handles GET requests**: Parses incoming HTTP requests to identify desired resources.
-* **Serves Static Files**: Delivers HTML and CSS content dynamically from the `public/` directory.
-* **404 Error Handling**: Returns a custom error page for missing resources.
-* **Multi-threaded**: Processes concurrent client connections using a Thread-per-Request model.
+## 🚀 Features
+* **Multi-threaded**: Handles multiple browser requests at once.
+* **Styling**: Delivers professional CSS styling alongside HTML content.
+* **MIME Detection**: Automatically identifies file types (HTML, CSS).
 
-### 3️⃣ How It Works
-* **ServerSocket**: Listens on port 8080 and accepts incoming client connections.
-* **Request Parsing**: Extracts the HTTP method and file path from the raw request line.
-* **Response Formatting**: Constructs a valid HTTP/1.1 response with status codes and MIME types.
+## 🛠️ How to Run
+1. **Compile**: `javac src/server/*.java`
+2. **Start**: `java -cp src server.HttpServer`
+3. **Visit**: Open `http://localhost:8080` in your browser.
 
-### 4️⃣ Example HTTP Flow
-**Client Request:**
-```text
-GET /index.html HTTP/1.1
-Host: localhost:8080
-```
+## 🔗 Live Test Links
+* **Home Page**: [http://localhost:8080](http://localhost:8080) (Styled Content)
+* **CSS File**: [http://localhost:8080/css/style.css](http://localhost:8080/css/style.css) (Direct Asset)
+* **Trigger 404**: [http://localhost:8080/error](http://localhost:8080/error) (Test Error Handling)
 
-**Server Response:**
-```text
-HTTP/1.1 200 OK
-Content-Type: text/html
-Content-Length: 124
-
-<html>...</html>
-```
-
-### 5️⃣ How To Run
-1. **Compile the source**:
-   `javac src/server/*.java`
-2. **Start the engine**:
-   `java -cp src server.HttpServer`
-3. **Visit in browser**:
-   Navigate to `http://localhost:8080`
+## 📂 Architecture
+* **HttpServer**: Listens for connections.
+* **ClientHandler**: The multi-threaded worker.
+* **ResponseBuilder**: Constructs valid HTTP/1.1 headers.

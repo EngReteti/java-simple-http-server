@@ -1,17 +1,30 @@
-# My Java Web Server 🚀
+# ⚡ JavaCore HTTP Engine
 
-A simple server that serves a website directly from Java code.
+### 1️⃣ Project Overview
+A simple web server built from scratch using Java Sockets. It handles requests, serves files, and logs activity in real-time.
 
-## How to Run
-1. Start the server: `java -cp src server.HttpServer`
-2. Open your browser and type: **localhost:8080**
+### 2️⃣ Features
+- **Multi-threaded**: Handles many visitors at once.
+- **Styling**: Serves CSS to make the website look professional.
+- **Error Handling**: Shows a custom 404 page if a file is missing.
 
-## What to Test
-- **Home**: Type `localhost:8080`
-- **Styling**: Type `localhost:8080/css/style.css`
-- **Error Page**: Type `localhost:8080/anything`
+### 3️⃣ How It Works
+- **HttpServer**: Listens for connections on port 8080.
+- **ClientHandler**: Processes each request on a new thread.
+- **ResponseBuilder**: Creates the correct HTTP headers.
 
-## What is happening?
-When you visit the links above, look at your **Termux screen**. You will see a log like:
-`LOG: GET / HTTP/1.1`
-This proves the server is talking to your browser!
+### 4️⃣ Example HTTP Flow (Live Logs)
+When you visit the site, your terminal will show:
+```text
+HTTP: GET / index.html HTTP/1.1
+```
+
+### 5️⃣ How To Run
+1. **Compile**: `javac src/server/*.java`
+2. **Start**: `java -cp src server.HttpServer`
+3. **Visit**: Open your browser and type **localhost:8080**
+
+### 🔗 Test Links (Local)
+- [Home Page](http://localhost:8080)
+- [Check CSS](http://localhost:8080/css/style.css)
+- [Test 404 Error](http://localhost:8080/any-fake-page)

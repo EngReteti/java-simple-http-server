@@ -18,9 +18,9 @@ public class ClientHandler implements Runnable {
             
             String requestLine = reader.readLine();
             
-            // This ensures the README is realistic
             if (requestLine != null) {
-                System.out.println("LOG: " + requestLine);
+                // Now it says HTTP: instead of LOG:
+                System.out.println("HTTP: " + requestLine);
                 
                 String path = RequestParser.getPath(requestLine);
                 Path filePath = Paths.get("public" + path);

@@ -1,18 +1,17 @@
-# ⚡ JavaCore HTTP Engine
+# My Java Web Server 🚀
 
-A modular, multi-threaded HTTP server built from scratch.
+A simple server that serves a website directly from Java code.
 
-## 🛠️ How to make the links work
-1. **Start the Engine**: Run `java -cp src server.HttpServer` in Termux.
-2. **Keep Termux Open**: The server must be active to respond to your browser.
-3. **Click & Watch**: When you click a link below, look back at Termux to see the live **HTTP/1.1** logs!
+## How to Run
+1. Start the server: `java -cp src server.HttpServer`
+2. Open your browser and type: **localhost:8080**
 
-## 🔗 Test Links (Local Only)
-* 🏠 [Home Page](http://localhost:8080) - Loads index.html with CSS.
-* 🎨 [CSS Style](http://localhost:8080/css/style.css) - Tests MIME-type delivery.
-* ⚠️ [Trigger 404](http://localhost:8080/missing) - Tests your custom error page.
+## What to Test
+- **Home**: Type `localhost:8080`
+- **Styling**: Type `localhost:8080/css/style.css`
+- **Error Page**: Type `localhost:8080/anything`
 
-## 📂 Architecture
-* **Multi-threaded**: Each request runs on a new thread.
-* **Modular Parser**: Cleanly extracts the path from the HTTP request.
-* **Custom UI**: Glassmorphism design served directly from Java.
+## What is happening?
+When you visit the links above, look at your **Termux screen**. You will see a log like:
+`LOG: GET / HTTP/1.1`
+This proves the server is talking to your browser!

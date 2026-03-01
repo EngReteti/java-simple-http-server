@@ -1,3 +1,5 @@
+Educational Project — Built to understand low-level web server architecture.
+
 # ⚡ JavaCore HTTP Engine
 
 ### 1️⃣ Project Overview

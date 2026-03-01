@@ -13,18 +13,17 @@ A simple web server built from scratch using Java Sockets. It handles requests, 
 - **ClientHandler**: Processes each request on a new thread.
 - **ResponseBuilder**: Creates the correct HTTP headers.
 
-### 4️⃣ Example HTTP Flow (Live Logs)
-When you visit the site, your terminal will show:
-```text
-HTTP: GET / index.html HTTP/1.1
-```
-
-### 5️⃣ How To Run
+### 4️⃣ How To Run
 1. **Compile**: `javac src/server/*.java`
 2. **Start**: `java -cp src server.HttpServer`
-3. **Visit**: Open your browser and type **localhost:8080**
+3. **Open Browser**: Type the addresses below manually.
 
-### 🔗 Test Links (Local)
-- [Home Page](http://localhost:8080)
-- [Check CSS](http://localhost:8080/css/style.css)
-- [Test 404 Error](http://localhost:8080/any-fake-page)
+### 📍 Manual Browser Links
+Copy and paste these into your browser address bar:
+- **Home Page**: `localhost:8080`
+- **Check CSS**: `localhost:8080/css/style.css`
+- **Test 404 Error**: `localhost:8080/any-fake-page`
+
+### 🖥️ Terminal Output
+When you visit the site, your Termux will show:
+`HTTP: GET / HTTP/1.1`

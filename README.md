@@ -6,10 +6,10 @@ Educational Project — Built to understand low-level web server architecture.
 A simple web server built from scratch using Java Sockets. It handles requests, serves files, and logs activity in real-time.
 
 ### 📸 Evidence of Work
-| Terminal Logs | Web Browser View | Technical Details |
+| Web Browser View | Terminal Logs | Technical Details |
 | :---: | :---: | :---: |
-| ![Terminal](screenshots/terminal.jpg) | ![Browser](screenshots/browser.jpg) | ![Details](screenshots/details.jpg) |
-| *Real-time HTTP logging* | *Styled UI delivery* | *System file path logs* |
+| ![Browser](screenshots/terminal.jpg) | ![Terminal](screenshots/browser.jpg) | ![Details](screenshots/details.jpg) |
+| *Styled UI delivery* | *Real-time HTTP logging* | *System file path logs* |
 
 ### 2️⃣ Features
 - **Multi-threaded**: Handles many visitors at once.
